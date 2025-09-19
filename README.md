@@ -1,24 +1,47 @@
+# Mandelbrot in Lua
 
-mandelbrot-lua
-==============
+This repository contains a Lua implementation for generating visualizations of the Mandelbrot set. It is part of a larger project comparing implementations across various programming languages.
 
-Mandelbrot with [Lua](https://www.lua.org/). Other languages: 
+The script can render the Mandelbrot set directly to the terminal as ASCII art or produce a data file for `gnuplot` to generate a high-resolution PNG image.
 
-* [Rust](https://github.com/jesper-olsen/mandelbrot-rs) 
-* [Erlang](https://github.com/jesper-olsen/mandelbrot_erl) 
-* [Python](https://github.com/jesper-olsen/mandelbrot-py) 
-* [Mojo](https://github.com/jesper-olsen/mandelbrot-mojo) 
-* [Fortran](https://github.com/jesper-olsen/mandelbrot-f) 
-* [Nushell](https://github.com/jesper-olsen/mandelbrot-nu)
-* [R](https://github.com/jesper-olsen/mandelbrot-R)
-* [Tcl](https://github.com/jesper-olsen/mandelbrot-tcl)
+### Other Language Implementations
 
+This project compares the performance and features of Mandelbrot set generation in different languages.
 
+| Language  | Repository                                               | Key Features                                 |
+| :-------- | :------------------------------------------------------- | :------------------------------------------- |
+| **Lua** | `mandelbrot-lua` (This Repo)                             | Single-threaded, Gnuplot-based PNG           |
+| Rust      | [mandelbrot-rs](https://github.com/jesper-olsen/mandelbrot-rs) | Multi-threaded, Direct PNG output            |
+| Python    | [mandelbrot-py](https://github.com/jesper-olsen/mandelbrot-py) | Multi-threaded, Direct PNG output            |
+| Mojo      | [mandelbrot-mojo](https://github.com/jesper-olsen/mandelbrot-mojo) | Multi-threaded                                             |
+| Erlang    | [mandelbrot_erl](https://github.com/jesper-olsen/mandelbrot_erl) | Multi-process, Gnuplot-based PNG             |
+| Fortran   | [mandelbrot-f](https://github.com/jesper-olsen/mandelbrot-f) | Single-threaded, Gnuplot-based PNG           |
+| Nushell   | [mandelbrot-nu](https://github.com/jesper-olsen/mandelbrot-nu) | Single-threaded, Gnuplot-based PNG           |
+| R         | [mandelbrot-R](https://github.com/jesper-olsen/mandelbrot-R) | Single-threaded, Gnuplot-based PNG           |
+| Tcl       | [mandelbrot-tcl](https://github.com/jesper-olsen/mandelbrot-tcl) | Single-threaded, Gnuplot-based PNG           |
 
-Run
 ---
-```
+
+## Prerequisites
+
+You will need the following installed to run this script:
+
+1.  **Lua**: The script was tested with Lua 5.4.
+2.  **Gnuplot**: Required *only* for generating PNG images from the data file.
+
+---
+
+## Usage
+
+The script can be configured via command-line arguments using a `key=value` format.
+
+### 1. ASCII Art Output
+
+To render the Mandelbrot set directly in your terminal, simply run the script.
+
+```sh
 lua mandelbrot.lua
+```
 ....................................................................................................
 ....................................................................................................
 ....................................................................................................
@@ -96,20 +119,49 @@ lua mandelbrot.lua
 ...................a2_._M_2MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 ```
 
-
+You can change the view and resolution by passing parameters:
+```sh
+# Zoom in on a different area with a wider view
+lua mandelbrot.lua width=120 ll_x=-0.75 ll_y=0.1 ur_x=-0.74 ur_y=0.11
 ```
-% time lua mandelbrot.lua  png=1 width=1000 height=750>image.txt
+
+### 2. PNG Image Generation
+
+To create a high-resolution PNG, you first generate a data file and then process it with `gnuplot`.
+
+**Step 1: Generate the data file**
+Set `png=1` and specify the desired dimensions. Redirect the output to a file.
+
+```sh
+lua mandelbrot.lua png=1 width=1000 height=750 > image.dat
+```
+
+**Step 2: Run gnuplot**
+This will read `image.dat` and create `mandelbrot.png`.
+
+```sh
+gnuplot topng.gp
+```
+
+The result is a high-quality `mandelbrot.png` image.
+
+![PNG Image of the Mandelbrot Set](mandelbrot.png)
+
+## Performance
+
+Benchmarks were run on an **Apple M1** system with **Lua 5.4.7**.
+
+**Generating a 1000x750 data file:**
+```sh
+% time lua mandelbrot.lua png=1 width=1000 height=750 > image.dat
 3.98s user 0.09s system 89% cpu 4.546 total
-
-% gnuplot topng.gp
-% ^open mandelbrot.png
 ```
-![PNG](mandelbrot.png)
 
-```
-% time lua mandelbrot.lua png=1 width=5000 height=5000>image.txt
+**Generating a 5000x5000 data file:**
+```sh
+% time lua mandelbrot.lua png=1 width=5000 height=5000 > image.dat
 129.62s user 3.37s system 84% cpu 2:38.18 total
-
+```
 % lua -v
 Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
 
