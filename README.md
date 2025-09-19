@@ -39,7 +39,7 @@ The script can be configured via command-line arguments using a `key=value` form
 
 To render the Mandelbrot set directly in your terminal, simply run the script.
 
-```sh
+``` sh
 lua mandelbrot.lua
 ```
 ```
@@ -131,6 +131,7 @@ lua mandelbrot.lua width=120 ll_x=-0.75 ll_y=0.1 ur_x=-0.74 ur_y=0.11
 To create a high-resolution PNG, you first generate a data file and then process it with `gnuplot`.
 
 **Step 1: Generate the data file**
+
 Set `png=1` and specify the desired dimensions. Redirect the output to a file.
 
 ```sh
@@ -138,6 +139,7 @@ lua mandelbrot.lua png=1 width=1000 height=750 > image.dat
 ```
 
 **Step 2: Run gnuplot**
+
 This will read `image.dat` and create `mandelbrot.png`.
 
 ```sh
