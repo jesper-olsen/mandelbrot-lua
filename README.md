@@ -165,7 +165,7 @@ Benchmarks were run on an **Apple M1** system with **Lua 5.4.7**.
 % time lua mandelbrot.lua png=1 width=5000 height=5000 > image.dat
 129.62s user 3.37s system 84% cpu 2:38.18 total
 ```
-```
+```sh
 % lua -v
 Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
 
