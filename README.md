@@ -10,15 +10,15 @@ This project compares the performance and features of Mandelbrot set generation 
 
 | Language  | Repository                                               | Key Features                                 |
 | :-------- | :------------------------------------------------------- | :------------------------------------------- |
-| **Lua** | `mandelbrot-lua` (This Repo)                             | Single-threaded, Gnuplot-based PNG           |
-| Rust      | [mandelbrot-rs](https://github.com/jesper-olsen/mandelbrot-rs) | Multi-threaded, Direct PNG output            |
-| Python    | [mandelbrot-py](https://github.com/jesper-olsen/mandelbrot-py) | Multi-threaded, Direct PNG output            |
-| Mojo      | [mandelbrot-mojo](https://github.com/jesper-olsen/mandelbrot-mojo) | Multi-threaded                                             |
-| Erlang    | [mandelbrot_erl](https://github.com/jesper-olsen/mandelbrot_erl) | Multi-process, Gnuplot-based PNG             |
-| Fortran   | [mandelbrot-f](https://github.com/jesper-olsen/mandelbrot-f) | Single-threaded, Gnuplot-based PNG           |
-| Nushell   | [mandelbrot-nu](https://github.com/jesper-olsen/mandelbrot-nu) | Single-threaded, Gnuplot-based PNG           |
-| R         | [mandelbrot-R](https://github.com/jesper-olsen/mandelbrot-R) | Single-threaded, Gnuplot-based PNG           |
-| Tcl       | [mandelbrot-tcl](https://github.com/jesper-olsen/mandelbrot-tcl) | Single-threaded, Gnuplot-based PNG           |
+| **Lua**   | `mandelbrot-lua` (This Repo)                                       | Single-threaded, Gnuplot-based PNG           |
+| Rust      | [mandelbrot-rs](https://github.com/jesper-olsen/mandelbrot-rs)     | Multi-threaded, Direct PNG output            |
+| Python    | [mandelbrot-py](https://github.com/jesper-olsen/mandelbrot-py)     | Multi-threaded, Direct PNG output            |
+| Mojo      | [mandelbrot-mojo](https://github.com/jesper-olsen/mandelbrot-mojo) | Multi-threaded, Gnuplot-based PNG            |
+| Erlang    | [mandelbrot_erl](https://github.com/jesper-olsen/mandelbrot_erl)   | Multi-process, Gnuplot-based PNG             |
+| Fortran   | [mandelbrot-f](https://github.com/jesper-olsen/mandelbrot-f)       | Single-threaded, Gnuplot-based PNG           |
+| Nushell   | [mandelbrot-nu](https://github.com/jesper-olsen/mandelbrot-nu)     | Single-threaded, Gnuplot-based PNG           |
+| R         | [mandelbrot-R](https://github.com/jesper-olsen/mandelbrot-R)       | Single-threaded, Gnuplot-based PNG           |
+| Tcl       | [mandelbrot-tcl](https://github.com/jesper-olsen/mandelbrot-tcl)   | Single-threaded, Gnuplot-based PNG           |
 
 ---
 
