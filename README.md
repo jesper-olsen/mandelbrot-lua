@@ -2,7 +2,7 @@
 mandelbrot-lua
 ==============
 
-Mandelbrot with [Tcl](https://www.lua.org/). Other languages: 
+Mandelbrot with [Lua](https://www.lua.org/). Other languages: 
 
 * [Rust](https://github.com/jesper-olsen/mandelbrot-rs) 
 * [Erlang](https://github.com/jesper-olsen/mandelbrot_erl) 
@@ -98,8 +98,7 @@ lua mandelbrot.lua
 
 
 ```
-% time tclsh mandelbrot.tcl png=1 width=1000 height=750>image.txt
-tclsh mandelbrot2.tcl png=1 width=1000 height=750 > image.txt
+% time lua mandelbrot.lua  png=1 width=1000 height=750>image.txt
 3.98s user 0.09s system 89% cpu 4.546 total
 
 % gnuplot topng.gp
